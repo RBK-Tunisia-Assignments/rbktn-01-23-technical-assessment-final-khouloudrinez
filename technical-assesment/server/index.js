@@ -43,12 +43,16 @@ app.post('/api/recepies',(req,res) => {
     });
 }
 )
-
-
-
-
-
-
+app.delete('/api/recepies/:id',(req, res) => {
+  const recepie_Id= req.params.id;
+  const sql = 'DELETE FROM recepie WHERE recepie_Id =?';
+  connection.query(sql,[recepie_Id],(err, result) => {
+    if(err){
+       return res.status(500).send(err) ;
+    } else {
+       return res.send(result) }
+}) 
+})
 // TODO - add additional route handlers as necessary
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);

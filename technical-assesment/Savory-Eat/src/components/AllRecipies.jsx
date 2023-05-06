@@ -13,7 +13,16 @@ const AllRecepies = () => {
   }, []); 
   
 
-
+  const handleDelete = (id) => {
+    axios
+      .delete(`http://localhost:4000/api/recepies/:id'${id}`)
+      .then(() => {
+        axios
+          .get("http://localhost:4000/api/menuItems")
+          .then((res) => setData(res.data));
+      })
+      .catch((err) => console.error(err));
+  };
 
 //   const fetchData = () => {
 //     fetch(data)
@@ -48,7 +57,7 @@ const AllRecepies = () => {
   ))
   }
     <div className="card">
-      <button className="delete">delete</button>
+      <button className="delete" onClick = {()=> handleDelete(data.recepie_Id)}>delete</button>
       <button className="update">update </button>
    
    
