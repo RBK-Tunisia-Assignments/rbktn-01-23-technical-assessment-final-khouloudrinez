@@ -4,3 +4,5 @@ module.exports = {
   password: "root",
   database: "recepies",
 };
+
+

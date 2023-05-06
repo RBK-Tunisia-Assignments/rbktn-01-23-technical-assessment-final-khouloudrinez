@@ -7,6 +7,7 @@ You will create a fullstack application that implements several features for an 
 2. an individual **recepie** with more details to display
 3. an **Add** view for the website manager to add a new recepie to their collection.
 
+
 ### Your Tech Stack 
 
 - Client: [React](https://facebook.github.io/react)
