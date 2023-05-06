@@ -12,7 +12,7 @@ const Add = () => {
   const[recepie_Image, setrecepie_Image] = useState('')
   const[recepie_Description, setrecepie_Description] = useState('')  
 
-
+  const post = () => {
     const newRecepie = {
       Cook_Time,
       Prep_Time,
@@ -36,7 +36,7 @@ const Add = () => {
     .catch(err => {
       console.log(err)
     })
-  
+  }
   
   return (
     <div className="add-recipe-form ">
@@ -46,7 +46,7 @@ const Add = () => {
       </div>
       <div className="form-group">
         <label>Cook Time:</label>
-        <input type="number" placeholder="Cooking Time" />
+        <input type="number" placeholder="Cooking Time"  />
       </div>
       <div className="form-group">
         <label>Prep Time:</label>
@@ -74,7 +74,7 @@ const Add = () => {
         <label>Image:</label>
         <input type="text" placeholder="Image URL" />
       </div>
-      <button className="create-recipe-btn" type="submit">Create Recipe</button>
+      <button className="create-recipe-btn" type="submit" onClick={post} >Create Recipe</button>
     </div>
   );
 };

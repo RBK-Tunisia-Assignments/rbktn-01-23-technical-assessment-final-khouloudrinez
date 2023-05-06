@@ -52,7 +52,18 @@ app.delete('/api/recepies/:id',(req, res) => {
     } else {
        return res.send(result) }
 }) 
-})
+}) 
+
+app.put('/api/recepies/:id'),(req, res) => {
+  const {Cook_Time,Prep_Time,recepie_Name,Serves, categorie, recepie_Image,recepie_Description} = req.body
+  const recepie_Id= req.params.id;
+  const sql = 'UPDATE recepie SET Cook_Time =?,Prep_Time =?,recepie_Name =?, Serves =?, categorie =?, recepie_Image =?, recepie_Description =? WHERE recepie_Id =?';
+  connection.query(sql,[Cook_Time,Prep_Time,recepie_Name,Serves, categorie, recepie_Image,recepie_Description,recepie_Id],(err, result) => {
+    if(err){
+      res.status(500).send(err) ;
+    } else {
+      res.send(result) }
+}) }
 // TODO - add additional route handlers as necessary
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
